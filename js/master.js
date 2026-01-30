@@ -14,6 +14,7 @@
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 });
+
 /////////////////////////////////////landing///////////
 let mypic=["1.jpg","3.jfif","4.jfif","5.jfif","6.jfif"]
 let view=document.querySelector(".landing .container img")
