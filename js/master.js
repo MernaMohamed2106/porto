@@ -18,10 +18,9 @@
 /////////////////////////////////////landing///////////
 let mypic=["1.jpg","3.jfif","4.jfif","5.jfif","6.jfif"]
 let view=document.querySelector(".landing .container img")
-
 setInterval(()=>{
     let myindex=Math.floor(Math.random()*mypic.length);
-    view.src="../images/"+mypic[myindex];
+    view.src="images/"+mypic[myindex];
      view.style.animation = "none";
   view.offsetHeight;
   view.style.animation = "slideIn 1s ease";

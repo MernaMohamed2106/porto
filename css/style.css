@@ -95,7 +95,7 @@ header .container .list ul li a{
     background-position: left ;
    position: relative;
    overflow: hidden;
-   z-index: 0;
+   z-index: 1;
 }
 .landing::before{
   content: "";
@@ -103,7 +103,7 @@ header .container .list ul li a{
   inset: 0;
   background:
     linear-gradient(80deg ,#111217e7 10% ,#17181ffc 20% ,#1f1f26fc 70% );
-  z-index: -1;
+  z-index: 0;
 }
 
 .landing .fa-circle-dot {
@@ -113,13 +113,13 @@ header .container .list ul li a{
    position: absolute;
    bottom: -80%;
    right: -25%;
-    z-index: -1;
+    z-index: 0;
 }
 .landing .container{
   margin-top: 40px;
     display: grid;
     height: 100vh;
-    z-index: 2;
+    z-index: 3;
     align-items: center;
     justify-content: space-between;
     gap:50px;
@@ -1857,9 +1857,6 @@ header .container{
 .layouts .container .card .inf h5{
    font-size: 18px;
 }
-/**********************reviews**************************/
-
-
 
 /***********************support************************/
 .support{
@@ -1914,8 +1911,12 @@ header .container{
  }
  
  /*************header****************/
-header .container{
+   header .container{
   position: relative;
+  width: 90%;
+  display: flex;
+  justify-items: center;
+  padding: 20px  20px  20px 40px;
 }
 header .container .fa-bars{
     display: flex;
@@ -1923,9 +1924,9 @@ header .container .fa-bars{
     font-size: 20px;
     background-color: var(--blue-color);
     padding: 10px;
-    border-radius: 5px;
-    position: absolute;
-    right: 10%;
+     border-radius: 5px;
+   position: absolute;
+    right: 0;
 }
 header .container .fa-bars:hover ~ .list ul{
   display: flex;
@@ -2241,6 +2242,15 @@ color: white;
 .about .container .col h3{
    font-size: 18px;
 }
+/***************************resons******************************/
+
+.resons .container{
+  display: flex;
+  flex-direction: column;
+}
+.resons .container .r {
+ width: 90%;
+}
 /*******************cards********************/
 
 .cards .container .card-con{
@@ -2351,6 +2361,27 @@ color: white;
 /**************************************************************************************************************/
 /**************************************************************************************************************/
    @media (max-width: 576px) {
+ header .container .fa-bars{
+   position: absolute;
+    right: 10%;
+}
+ header {width: 85%;
+}
+  
+header .container .list ul{
+ position: absolute;
+ width:fit-content;
+ top: 40px;
+right:-40px;
+background-color: var(--black-color);
+padding:40px;
+display: none;
+flex-direction: column;
+z-index: 20;
+}
+header .container .list  ul li a{
+font-size: 15px;
+}
   
  /*************landing*******************/
 
@@ -2375,9 +2406,15 @@ color: white;
 .feedback{
    position: relative; 
    top:60px;
-   width: 500px;
+   width: 300px;
    z-index: 20;
-   padding: 15px  20px 25px 40px;
+   padding: 15px ;
+}
+.feedback h5{
+  font-size: 18px;
+}
+.feedback p{
+  font-size: 12px;
 }
 
 /********************************inform******************************************/
@@ -2387,83 +2424,158 @@ color: white;
 }
 
 .inform .container .title h1 {
-    font-size: 30px;
-    margin-bottom: 2%;
+    font-size: 20px;
+    margin: 5% 0;
+}
+.inform .container .title p {
+    font-size: 11px;
 }
 .inform .container .for{
-  font-size: 15px;
+  font-size: 13px;
 }
 .inform .container .in{
   margin: 80px 20px ;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 10%;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
 }
 .inform .container .in .t{
-    width: 90%;
+    width: 100%;
 }
 .inform .container .in .t h1{
-   font-size: 50px;
-   font-weight: 900;
-    font-family: sans-serif;
-    margin: 0;
+   font-size: 40px;
 }
 .inform .container .in span{
-    font-size: 17px;
+    font-size: 11px;
+}
+.inform .container .in .btn a{
+    font-size: 11px;
+}
+/*****************images***********************/
+
+.images .fa-arrow-turn-up {
+  position: absolute;
+  bottom: -400px;
+  right:  60px;
+  font-size: 70px;
+  color: rgb(187, 187, 187);
+  z-index: 2;
+ transform: rotateY(76deg) scale(1.7);
+}
+.images .t {
+ transform: rotateY(180deg) scale(0.7) rotateX(0deg);
+    bottom: -500px;
+    left: 15%;
+    
+}
+.images .container::before {
+ content: "Modern Designs!";
+ position: absolute;
+  bottom: -500px;
+    right:  130px;
+ 
+}
+.images .container::after {
+ content: " A lot of Demos!";
+ position: absolute;
+ bottom: -430px;
+    left: 40%;
+
+}
+.images .i1 {
+  width: 20%;
+  height: 350px;
+  z-index: 2;
+  top: 40px;
+  left:10%;
+}
+.images .i2 {
+   width: 50%;
+    height: 350px;
+    z-index: 1;
+}
+.images .i3{
+    top: 150px;
+    right:  5%;
+}
+
+
+/*****************about***************************/
+.about{
+  padding: 5%  20px;
+}
+.about .container{
+   grid-template-columns: repeat(2,1fr);
+   gap: 1%;
+}
+.about .container .co h3{
+  font-size: 17px;
+}
+.about .container .co p{
+  color: var(--gray-color);
+  font-size: 12px;
+  letter-spacing: 1.6;
+}
+.about .container .col h3{
+   font-size: 12px;
+}
+.about .container .col {
+  padding: 15px 0;
 }
 /*********************next*************************/
 
 
 .next .container .title h3{
-   font-size: 25px;
+   font-size: 20px;
 }
 .next .container .title p{
-   font-size: 15px;
+   font-size: 12px;
 }
 .next .container .con{
-  margin-top: 10%;
-  position: relative;
-  display: flex;
-  width: 100%;
-}
-/***************************resons******************************/
-
-.resons .container{
-   display: flex;
-   flex-direction: column;
-}
-.resons .container .r{
-   width: 80%;
-   z-index: 4;
+ display: none;
 }
 
+/*******************cards********************/
 
+.cards .container .card-con{
+  gap: 20%;
+ display: flex;
+ flex-direction: column;
+}
+
+.cards .container .card{
+  width: 80%;
+  padding: 30px  0;
+}
+.cards  input{
+   bottom: 30px;
+}
+/***********************performance******************************/
+.performance .container{
+  z-index: 20;
+}
+.performance .container .t{
+  z-index: 20;
+  padding: 80px 0;
+}
+.performance .container .t img{
+  display: none;
+}
 
 /*******************************LIST*********************************/
-.list{
-  position: relative;
-}
-.list .m{
-   position: absolute;
-  top: 0%;           
-  right:0;
-  width: 100%;  
-  z-index: -1;
-  height: 100px;   
-  background: linear-gradient(to top, #1d1d20   );
-  clip-path: polygon(
-  0% 0%,
-  100% 0%,
-  50% 100%
-);
-}
 
 .list .title{
-    padding: 15% 0;
+    padding: 25% 0;
     
 }
 .list .title h1{
-    font-size: 25px;
+    font-size: 18px;
+}
+.list .title .lis{
+    font-size: 18px;
+}
+.list .title .lis li {
+    font-size: 10px;
 }
 .list .title  span{
     font-size: 45px;
@@ -2471,9 +2583,10 @@ color: white;
 
 
 .list .container{
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
+
 /****************************menu**********************************/
 
 .menu .container{
@@ -2481,11 +2594,26 @@ color: white;
    flex-direction: column;
    gap: 20%;
 }
+.menu .container img{
+  width: 80%;
+}
 .menu .container .left{
   margin-top: 5%;
   text-align: center;
   justify-items: center;
   font-family: sans-serif;
+}
+.menu .container .left h6{
+ font-size: 10px;
+}
+.menu .container .left h3{
+ font-size: 19px;
+}
+.menu .container .left .ic{
+  width:100%;
+}
+.menu .container .left .ic h5{
+ font-size: 9px;
 }
 /******************layouts***********************/
 .layouts{
@@ -2540,75 +2668,119 @@ color: white;
 
 
 /**********************reviews**************************/
-.reviews{
-   position: relative;
-   background-color: rgb(239, 239, 239);
-   overflow: hidden;
-   padding: 50px 0;
-}
-.reviews .layout{
-    position: absolute;
-  top: 0;           
-  right:0;
-  width: 100%;  
-  z-index: -1;
-  height: 100px;   
-  background: linear-gradient(to top, white   );
-  clip-path: polygon(
-  0% 0%,
-  100% 0%,
-  50% 80%
-);
-z-index: 4;
- pointer-events: none;
-}
+
 
 .reviews .title{
-   padding: 10% 50px 0;
-   font-family: sans-serif;
-   text-align: center;
-   color: #1f1f24;
+   padding: 30% 50px 0;
 }
 .reviews .title h1{
     font-weight: 900;
-    font-size: 80px;
-    padding: 0;
-    margin: 0;
+    font-size: 50px;
 }
 .reviews .title h2{
        font-weight: 900;
-    font-size: 20px;
+    font-size:13px;
+}
+.reviews .title .p1{
+    font-size:12px;
+}
+.reviews .title .p2{
+    font-size:11px;
+}
+.reviews .title .p3{
+    font-size:11px;
+}
+.reviews input{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0%;
+}
+
+/********************support****************************/
+.support{
+  display: flex;
+  flex-direction: column;
+  padding: 20% 0;
+}
+.support img{
+  display: none;
+}
+.support .right{
+  width: 90%;
+}
+.support .right .title h1{
+  font-size: 28px;
+}
+.support .right .title h5{
+  font-size: 15px;
+}
+.support .right .title p{
+ font-size: 15px;
+}
+
+/***********************features***************************************/
+
+
+
+.features .container .title h1{
+  font-size: 25px;
+}
+.features .container .title p{
+  font-size: 13px;
+}
+.features .container .card-con{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+}
+.features .container .card-con .card{
+     width: 90%;
+}
+
+/***********************features***************************************/
+
+.elements  .title{
+  padding: 70px 10px 40px ;
+}
+.elements  .title h2{
+  font-size: 30px;
+}
+.elements  .title p{
+  font-size: 14px;
+}
+
+.elements .container{
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
+  padding: 10px;
 }
 
 /***************purchase***********************/
 
 .purchase .container h1{
-  font-size: 20px;
-  font-weight: 900;
-  letter-spacing: -1px;
+     font-size: 19px;
+
 }
 .purchase .container h3{
-     font-size: 15px;
-     padding-bottom: 20px;
-  font-weight: 900;
-  letter-spacing: -1px;
+     font-size: 16px;
 
 }
 .purchase .container p{
-  width: 80%;
-  font-size: 13px;
-  opacity: 0.8;
+  width: 90%;
 }
 .purchase .container ul{
+ width: 100%;
  display: flex;
  flex-direction: column;
- justify-content: center;
- align-items: center;
- width: 100%;
- gap: 5%;
 }
 .purchase .container ul li {
- padding: 20px;
+ width: 100%;
+ padding: 10px 0;
+}
+.purchase .container ul li span{
+ width: 100%;
+ font-size: 15px;
 }
 .purchase .lis ul li {
     display: flex;
@@ -2617,22 +2789,22 @@ z-index: 4;
     justify-content: center;
     padding: 25px ;
 }
-.purchase .lis ul li:hover {
-    background-color: #1b1b1c;
-    cursor: pointer;
-}
 .purchase .lis ul li .i{
-  font-size: 30px;
-  padding: 20px 0;
+  font-size: 25px;
 }
 .purchase .lis ul li h3{
-  font-size: 11px;
+  font-size: 7px;
 }
 
 /********************porto****************************/
 
 
 .porto .container p {
-  font-size: 13px;
+  font-size: 10px;
+}
+/*********footer**************/
+footer p{
+   padding:0 10px;
+   font-size: 10px;
 }
    }
