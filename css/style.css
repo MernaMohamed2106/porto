@@ -2735,9 +2735,11 @@ font-size: 15px;
        display: flex;
        flex-direction: column;
        align-items: center;
+       z-index: 10;
 }
 .features .container .card-con .card{
      width: 90%;
+  
 }
 
 /***********************features***************************************/
